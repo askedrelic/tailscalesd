@@ -18,7 +18,7 @@ all: tailscalesd
 test:
 	go test -v ./... -bench=.
 
-tailscalesd:
+tailscalesd: $(shell find . -type f -name '*.go')
 	$(BUILDCMD) $@ $(MAIN)
 
 dist: $(DISTTARGETS) $(SUMS)
